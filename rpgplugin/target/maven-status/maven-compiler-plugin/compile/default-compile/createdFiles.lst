@@ -1,0 +1,7 @@
+com\micahscomputers\customItemHandler.class
+com\micahscomputers\menuHandler.class
+com\micahscomputers\items\adminWand.class
+com\micahscomputers\items\deathripperDagger.class
+com\micahscomputers\commands\commands.class
+com\micahscomputers\items\wizardsStaff.class
+com\micahscomputers\Plugin.class

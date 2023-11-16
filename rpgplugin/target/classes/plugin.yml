@@ -1,0 +1,17 @@
+name: rpgplugin
+main: com.micahscomputers.Plugin
+version: 0.0.1
+api-version: 1.15
+commands:
+  giveadminwand:
+    description: Gives the player an admin wand.
+    usage: /<command>
+  givedagger:
+    description: Gives the player a deathripper dagger.
+    usage: /<command>
+  givewizardsstaff:
+    description: Gives the player a wizard's staff.
+    usage: /<command>
+  openmenu:
+    description: Test command for menus.
+    usage: /<command> menuId player
