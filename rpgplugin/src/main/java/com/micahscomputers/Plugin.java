@@ -9,9 +9,14 @@ import com.micahscomputers.items.adminWand;
 import com.micahscomputers.items.deathripperDagger;
 import com.micahscomputers.items.wizardsStaff;
 
+import net.jitse.npclib.NPCLib;
+
 public class Plugin extends JavaPlugin{
     
+    private static NPCLib npclibrary;
+
     public void onEnable() {
+        npclibrary = new NPCLib(this);
         deathripperDagger.init();
         wizardsStaff.init();
         adminWand.init();
@@ -19,8 +24,13 @@ public class Plugin extends JavaPlugin{
         getCommand("givedagger").setExecutor(new commands());
         getCommand("givewizardsstaff").setExecutor(new commands());
         getCommand("openmenu").setExecutor(new commands());
-        getServer().getPluginManager().registerEvents(new customItemHandler(), this);
+        getCommand("dialogue").setExecutor(new commands());
+        Bukkit.getPluginManager().registerEvents(new customItemHandler(), this);
         Bukkit.getPluginManager().registerEvents(new MenuFunctionListener(), this);
+        npcHandler.npcHandlerFunction();
+    }
+    public static NPCLib getNPCLib() {
+        return npclibrary;
     }
     public void onDisable() {
 

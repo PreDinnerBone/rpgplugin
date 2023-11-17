@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import com.micahscomputers.dialogueHandler;
 import com.micahscomputers.menuHandler;
 import com.micahscomputers.items.adminWand;
 import com.micahscomputers.items.deathripperDagger;
@@ -15,11 +16,6 @@ public class commands implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage("Only players can use that command!");
-            return true;
-        }
-
         Player player = (Player) sender;
         if (cmd.getName().equalsIgnoreCase("giveadminwand")) {
             player.getInventory().addItem(adminWand.adminWand);
@@ -37,6 +33,14 @@ public class commands implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("openmenu")) {
             Player playerMenu = Bukkit.getPlayer(args[1].toString());
             menuHandler.displayMenu(playerMenu);
+        }
+        if (cmd.getName().equalsIgnoreCase("dialogue")) {
+            try {
+                Player playerDialouge = Bukkit.getPlayer(args[0].toString());
+                dialogueHandler.sendDialogue(playerDialouge);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         return true;

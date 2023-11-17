@@ -15,3 +15,6 @@ commands:
   openmenu:
     description: Test command for menus.
     usage: /<command> menuId player
+  dialogue:
+    description: Dialogue command for NPC's.
+    usage: /<command> player
